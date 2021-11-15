@@ -1,0 +1,17 @@
+{
+  "name": "solid-signal-form",
+  "author": "Untlsn",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "tsc",
+    "watch": "tsc --watch"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.2.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.3",
+    "solid-js": "^1.2.3"
+  }
+}
