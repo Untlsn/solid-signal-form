@@ -1,12 +1,27 @@
 {
   "name": "solid-signal-form",
-  "author": "Untlsn",
-  "version": "0.1.0",
+  "description": "Solid-js forms library with api similar to react-hook-form",
+  "version": "0.1.1",
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
     "start": "tsc",
     "watch": "tsc --watch"
   },
+  "keywords": [
+    "solid-js",
+    "form",
+    "forms",
+    "form-validation",
+    "validation",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Untlsn/solid-signal-form"
+  },
+  "author": "<philipskoczen@gmail.com>",
+  "license": "MIT",
   "peerDependencies": {
     "solid-js": "^1.2.3"
   },
