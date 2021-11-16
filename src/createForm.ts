@@ -59,14 +59,17 @@ export const createForm = <Inputs extends Record<string, any>>(props?: Partial<P
           if (registerProps.validation) {
             createEffect(() => {
               wasFirstSubmit();
-              setErrors(name, () => {
+
+
+              setErrors(name, (error) => {
                 const errorMessage = registerProps.validation!(input.value());
+
                 return errorMessage && wasFirstSubmit()
                   ? {
                     type: 'validation',
                     message: errorMessage,
                   }
-                  : undefined
+                  : error?.type == 'validation' ? undefined : error
               })
             })
           }
@@ -76,13 +79,13 @@ export const createForm = <Inputs extends Record<string, any>>(props?: Partial<P
 
             createEffect(() => {
               wasFirstSubmit();
-              setErrors(name, () => {
+              setErrors(name, (error) => {
                 return !regexp.test(input.value()) && wasFirstSubmit()
                   ? {
                     type: 'regexp',
                     message: errorMessage,
                   }
-                  : undefined
+                  : error?.type == 'regexp' ? undefined : error
               })
             })
           }
@@ -90,12 +93,12 @@ export const createForm = <Inputs extends Record<string, any>>(props?: Partial<P
           if (registerProps.require) {
             createEffect(() => {
               wasFirstSubmit();
-              setErrors(name, () => !input.value() && wasFirstSubmit()
+              setErrors(name, (error) => !input.value() && wasFirstSubmit()
                 ? {
                   type: 'require',
                   message: registerProps.require!,
                 }
-                : undefined
+                : error?.type == 'require' ? undefined : error
               )
             })
           }
